@@ -31,5 +31,5 @@ RUN apt-get update && apt-get upgrade -y \
     libgtk-3-0
 
 # Install electron
-npm install -g electron --unsafe-perm=true --allow-root
+RUN npm install -g electron --unsafe-perm=true --allow-root
 
