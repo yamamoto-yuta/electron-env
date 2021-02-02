@@ -16,11 +16,11 @@ RUN apt-get update && apt-get upgrade -y \
     x11-apps
 
 # Install Node.js
-RUN curl -sL https://deb.nodesource.com/setup_14.x | bash - \
-  && apt-get install -y nodejs \
-  && npm install n -g \
-  && n stable \
-  && apt-get purge -y nodejs npm
+RUN curl -sL https://deb.nodesource.com/setup_14.x | bash -
+RUN apt-get install -y nodejs
+RUN npm install n -g
+RUN n stable
+RUN apt-get purge -y nodejs npm
 
 # Install electron
 RUN npm install electron -g
