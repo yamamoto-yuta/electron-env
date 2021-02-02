@@ -16,5 +16,5 @@ RUN apt-get update && apt-get upgrade -y \
     x11-apps
 
 # Install electron
-RUN npm install electron -g
+#RUN npm install electron -g
 
