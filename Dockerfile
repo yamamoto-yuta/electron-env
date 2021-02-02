@@ -1,5 +1,5 @@
 # Base image
-FROM ubuntu:20.04
+FROM node:14.15.1
 
 # Environment setting
 ENV HOME /home
@@ -14,13 +14,6 @@ RUN apt-get update && apt-get upgrade -y \
     vim \
     xserver-xorg \
     x11-apps
-
-# Install Node.js
-RUN curl -sL https://deb.nodesource.com/setup_14.x | bash -
-RUN apt-get install -y nodejs
-RUN npm install n -g
-RUN n stable
-RUN apt-get purge -y nodejs npm
 
 # Install electron
 RUN npm install electron -g
