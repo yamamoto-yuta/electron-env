@@ -11,10 +11,17 @@ ENV DEBIAN_FRONTEND=noninteractive
 RUN apt-get update && apt-get upgrade -y \
   && apt-get install -y \
     git \
-    vim
+    vim \
+    xserver-xorg \
+    x11-apps
 
-# Install x11-apps
-RUN apt-get install -y \
-  xserver-xorg \
-  x11-apps
+# Install Node.js
+RUN curl -sL https://deb.nodesource.com/setup_14.x | bash - \
+  && apt-get install -y nodejs \
+  && npm install n -g \
+  && n stable \
+  && apt-get purge -y nodejs npm
+
+# Install electron
+RUN npm install electron -g
 
